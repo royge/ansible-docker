@@ -8,4 +8,4 @@ MAINTAINER Roy Evangelista <royevangelista@gmail.com>
 RUN pip install ansible==2.3.2.0
 
 # Copied from base image
-CMD ["python3"]
+CMD ["python"]
