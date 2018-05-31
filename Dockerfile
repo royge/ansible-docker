@@ -14,4 +14,4 @@ ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip install ansible
 
 # Copied from base image
-CMD ["python3"]
+CMD ["ansible", "--version"]
