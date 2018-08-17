@@ -3,7 +3,7 @@ commandTests:
   - name: "python version"
     command: "python"
     args: ["--version"]
-    expectedOutput: ["Python 2.7.*\n"]
+    expectedError: ["Python 2.7.*\n"]
 
   - name: "ansible installation"
     command: "pip"
