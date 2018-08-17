@@ -1,4 +1,4 @@
-# The base image is python 3 alpine
+# The base image is python 2.7
 FROM python:2.7
 
 # Author: Roy Evangelista

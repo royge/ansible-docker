@@ -1,0 +1,14 @@
+schemaVersion: '2.0.0'
+commandTests:
+  - name: "python version"
+    command: "python"
+    args: ["--version"]
+    expectedOutput: ["Python 2.7.*\n"]
+
+  - name: "ansible installation"
+    command: "pip"
+    args: ["show", "ansible"]
+    expectedOutput: [
+        "ansible\n",
+        "Version: 2.6.1\n",
+        ]
