@@ -12,3 +12,10 @@ commandTests:
         "ansible\n",
         "Version: 2.6.1\n",
         ]
+
+  - name: "flake8 installation"
+    command: "pip"
+    args: ["show", "flake8"]
+    expectedOutput: [
+        "flake8\n",
+        ]
