@@ -5,7 +5,7 @@ FROM python:2.7
 MAINTAINER Roy Evangelista <royevangelista@gmail.com>
 
 # Install ansible
-RUN pip install ansible==2.6.1
+RUN pip install ansible==2.6.1 flake8
 
 # Copied from base image
 CMD ["python"]
