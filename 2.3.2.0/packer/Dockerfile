@@ -4,6 +4,8 @@ FROM python:3-alpine
 # Author: Roy Evangelista
 MAINTAINER Roy Evangelista <royevangelista@gmail.com>
 
+RUN apk add --no-network --no-cache --repositories-file /dev/null "apk-tools>2.10.1"
+
 # Install new packages
 RUN apk add --update build-base python-dev py-pip jpeg-dev zlib-dev libffi-dev openssl-dev git openssh-client
 RUN apk update \

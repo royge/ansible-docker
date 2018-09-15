@@ -11,9 +11,5 @@ before_install:
 script:
   - make build
   - make test
-  - cd 2.3.2.0 && make build && make test
-  - cd packer && make build && make test
-  - cd ../../
-  - cd python2.7/2.3.2.0 && make build && make test
-  - cd ../
-  - cd 2.6 && make build && make test
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - make push
