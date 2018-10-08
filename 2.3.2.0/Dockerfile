@@ -1,16 +1,5 @@
 # The base image is python 3 alpine
-FROM python:3-alpine
-
-# Author: Roy Evangelista
-MAINTAINER Roy Evangelista <royevangelista@gmail.com>
-
-RUN apk add --no-network --no-cache --repositories-file /dev/null "apk-tools>2.10.1"
-
-# Install new packages
-RUN apk add --update build-base python-dev py-pip jpeg-dev zlib-dev libffi-dev openssl-dev git openssh-client
-
-# Change LIBRARY_PATH environment variable because of error in building zlib
-ENV LIBRARY_PATH=/lib:/usr/lib
+FROM royge/ansible:latest
 
 # Install ansible
 RUN pip install ansible==2.3.2.0

@@ -5,5 +5,5 @@ commandTests:
     args: ["show", "ansible"]
     expectedOutput: [
         "ansible\n",
-        "Version: 2.6.*\n",
+        "Version: 2.7.*\n",
         ]

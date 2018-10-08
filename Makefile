@@ -1,9 +1,11 @@
 build:
 	docker build --pull -t ansible:latest .
 	docker tag ansible:latest royge/ansible:latest
-	docker build --pull -t ansible:2.3.2.0 ./2.3.2.0
+	docker build -t ansible:packer ./packer
+	docker tag ansible:packer royge/ansible:packer
+	docker build -t ansible:2.3.2.0 ./2.3.2.0
 	docker tag ansible:2.3.2.0 royge/ansible:2.3.2.0
-	docker build --pull -t ansible:2.3.2.0-packer ./2.3.2.0/packer
+	docker build -t ansible:2.3.2.0-packer ./2.3.2.0/packer
 	docker tag ansible:2.3.2.0-packer royge/ansible:2.3.2.0-packer
 	docker build -t ansible:2.6-py2 ./python2.7/2.6
 	docker tag ansible:2.6-py2 royge/ansible:2.6-py2
@@ -15,6 +17,7 @@ prepare:
 
 push:
 	docker push royge/ansible:latest
+	docker push royge/ansible:packer
 	docker push royge/ansible:2.3.2.0
 	docker push royge/ansible:2.3.2.0-packer
 	docker push royge/ansible:2.6-py2
@@ -24,6 +27,9 @@ test:
 	container-structure-test test \
 		--image ansible:latest \
 		--config test-config.yaml
+	container-structure-test test \
+		--image ansible:packer \
+		--config packer/test-config.yaml
 	container-structure-test test \
 		--image ansible:2.3.2.0 \
 		--config 2.3.2.0/test-config.yaml
