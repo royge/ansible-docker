@@ -1,11 +1,23 @@
 schemaVersion: '2.0.0'
 commandTests:
+  - name: "python version"
+    command: "python"
+    args: ["--version"]
+    expectedError: ["Python 2.7.*\n"]
+
   - name: "ansible installation"
     command: "pip"
     args: ["show", "ansible"]
     expectedOutput: [
         "ansible\n",
         "Version: 2.7.*\n",
+        ]
+
+  - name: "flake8 installation"
+    command: "pip"
+    args: ["show", "flake8"]
+    expectedOutput: [
+        "flake8\n",
         ]
 
   - name: "packer version"

@@ -7,6 +7,10 @@ build:
 	docker tag ansible:2.3.2.0 royge/ansible:2.3.2.0
 	docker build -t ansible:2.3.2.0-packer ./2.3.2.0/packer
 	docker tag ansible:2.3.2.0-packer royge/ansible:2.3.2.0-packer
+	docker build --pull -t ansible:py2 ./python2.7
+	docker tag ansible:py2 royge/ansible:py2
+	docker build -t ansible:py2-packer ./python2.7/packer
+	docker tag ansible:py2-packer royge/ansible:py2-packer
 	docker build -t ansible:2.6-py2 ./python2.7/2.6
 	docker tag ansible:2.6-py2 royge/ansible:2.6-py2
 	docker build -t ansible:2.3.2.0-py2 ./python2.7/2.3.2.0
@@ -20,6 +24,8 @@ push:
 	docker push royge/ansible:packer
 	docker push royge/ansible:2.3.2.0
 	docker push royge/ansible:2.3.2.0-packer
+	docker push royge/ansible:py2
+	docker push royge/ansible:py2-packer
 	docker push royge/ansible:2.6-py2
 	docker push royge/ansible:2.3.2.0-py2
 
@@ -36,6 +42,12 @@ test:
 	container-structure-test test \
 		--image ansible:2.3.2.0-packer \
 		--config 2.3.2.0/packer/test-config.yaml
+	container-structure-test test \
+		--image ansible:py2 \
+		--config python2.7/test-config.yaml
+	container-structure-test test \
+		--image ansible:py2-packer \
+		--config python2.7/packer/test-config.yaml
 	container-structure-test test \
 		--image ansible:2.6-py2 \
 		--config python2.7/2.6/test-config.yaml
